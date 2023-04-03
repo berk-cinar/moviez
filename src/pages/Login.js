@@ -32,26 +32,28 @@ const Login = () => {
             setPassword(e.target.value.toLowerCase())
             console.log("pass:" + password)
       }
+      const navigate = useNavigate("")
 
-      const signIn = () => {
-     /*    users.find((a)=> a.mail===mail)!=null && users.find((a)=> a.password===password)!=null  */
-      }
+      const signIn=()=>{
+        navigate("/homepage");
+    }
+
 
   return (
     <div>
-                <section class="bg-gray-50 dark:bg-gray-900">
-  <div class="flex flex-col items-center justify-center px-6  mx-auto md:h-[75vh] lg:py-0">
+                <section class="bg-gray-50 h-[85vh]">
+  <div class="flex flex-col items-center justify-center px-6  mx-auto h-[75vh] lg:py-0">
 
-      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div class="space-y-4 md:space-y-6 sm:p-8">
-              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div class="space-y-4 space-y-6 p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                   Sign in to your account
               </h1>
               <form class="space-y-4 md:space-y-6" action="#">
 
                   <div>
                       <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                      <input onChange={handleMail} type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required=""/>
+                      <input onChange={handleMail} type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@company.com" required=""/>
                   </div>
 
                   <div>
@@ -71,16 +73,11 @@ const Login = () => {
                   </div>
                   {/* <a onClick={signIn} href="/" type="submit" class="w-full text-white bg-sky-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                         Sign in</a> */}
+
                         {
             users.find((a)=> a.password===password)!=null &&       users.find((a)=> a.mail===mail)!=null
-             
-             /*  "ahmet@gmail.com"  */ 
-              
-
-             /* movie => movie.type !== type */
-
              ?
-                 <a onClick={signIn} href="/" type="submit" class="w-full text-white bg-sky-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                 <a  href="/homepage" type="submit" class="w-full text-white bg-sky-700 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                 Sign in </a>
              :
                             <div>

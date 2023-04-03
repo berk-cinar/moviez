@@ -20,14 +20,24 @@ const {id} = useParams();
     <BrowserRouter>
     <Navbar/>
         <Routes>
-                <Route path='/'  element={<HomePage/>}/>
-                <Route  path='movielist' element={<MovieList/>}/>
+                <Route path='/'  element={<Login/>}/>
+                <Route exact path={"/homepage"} element={<HomePage/>}/> 
+                <Route path='movielist' element={<MovieList/>}/>
                 <Route path={"/movie/:id"} element={<MovieDetails/>}/>
-
                 <Route path={"/favorites"} element={<Favorites/>}/>
                 <Route path={"/favorites/:id"} element={<FavoritesDetails/>}/> 
-                <Route index exact path={"/login"} element={<Login/>}/> 
                 <Route path={"/cart"} element={<CartPage/>}/> 
+{/*                 <Route
+                exact
+                path="/"
+                render={() => {
+                    return (
+                      this.state.isUserAuthenticated ?
+                      <Redirect to="/home" /> :
+                      <Redirect to="/test1" /> 
+                    )
+                }}
+              /> */}
         </Routes>
         <Footer/>
     </BrowserRouter>

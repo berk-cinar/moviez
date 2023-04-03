@@ -7,31 +7,26 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 
 import { useSelector, useDispatch } from 'react-redux';
+import {IoMdAddCircleOutline} from "react-icons/io"
+import {BiRightArrow} from "react-icons/bi"
 
 function HomePage() {
 
 
   const [movies, setMovies] = useState([]);
+  const [login, setLogin] = useState(false);
 
-  const [filtered, setFiltered] = useState([]);
-
-  const [search, setSearchBar] = useState('');
-  
   const navigate=useNavigate();
+
 
   const goToSource=(id)=>{
         navigate("/movie/"+id);
     }
 
-  const goToOffice=(id)=>{
-        navigate("/movie/9");
+  const goToStarTrek=(id)=>{
+        navigate("/movie/19");
     }
 
-    function filterMovies(searchTerm, movies) {
-      return movies.filter(movie =>
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
 
 
   useEffect(() => {
@@ -40,28 +35,46 @@ function HomePage() {
       .catch(error => console.log(error));
   }, []);
 
-  useEffect(() => {
-    setFiltered(filterMovies(search, movies));
-    console.log(filtered)
-  }, [search, movies]);
-
    const items = useSelector((state) =>state.allCart.items)
 
    const dispatch = useDispatch();
 
   return (
     <div>
-
-
 <div class="relative">
-  <img class="w-full h-[50vh]" src="theoffice.png" alt="theoffice"/>
-  <button onClick={goToOffice} type="button" class=" absolute top-0 m-28 focus:outline-none text-blue bg-white hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-md text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">Watch Now</button>
-  </div>
-    <div className=' w-full flex justify-center items-center bg-sky-100 p-20'>
-      
-<div className='mt-10 xl:pl-20 xl:pr-20  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  xl:grid-cols-6 gap-4 mr-6  md:mr-8 lg:mr-16 ml-6 ' >
+  <img class="w-full h-[40vw]   lg:h-[60vh]" src="startrek.png" alt="theoffice"/>
 
-        {filtered
+  <div className='text-sm lg:m-12 absolute top-6 lg:top-12 left-6 md:left-36 sm:top-12 sm left-6 text-white'>
+      <p className='text-gray-300 mb-3 lg:mb-6'>Action Drama  | 2007  | USA | 142 Min </p>
+      <span className='font-semibold text-lg md:text-6xl'>
+      Star Trek: 
+      </span> <br></br>
+      <span className='font-light text-lg md:text-6xl'>
+      New World
+    </span> <br></br>
+    <button  onClick={goToStarTrek} type="button" class="pr-2 relative bg-[#24BBF0] text-white border border-[#24BBF0] mr-4 mt-3 lg:mt-6 md:mt-12 font-medium rounded-[1.5px] text-md px-2 lg:px-5 py-1 lg:py-2.5  ">
+      <BiRightArrow className='absolute top-2.3 ml-2 lg:ml-4  left-0 h-5 w-5  '/>
+      <p className='ml-6'>
+      Movie Page
+      </p>
+    </button>
+  
+    <a href="https://www.youtube.com/watch?v=ndtCicnVvbc"    type="button" class="pr-2 bg-black bg-opacity-50 md:bg-opacity-0 relative text-white border border-white font-medium rounded-[1.5px] text-md px-2 lg:px-5 py-1 lg:py-2.5  ">
+      <IoMdAddCircleOutline className='absolute top-2.3 ml-2 lg:ml-4   left-0 h-5 w-5  '/>
+      <p className='ml-6'>
+  
+    Watch Trailer
+      </p>
+    </a>
+  </div>
+
+  
+  </div>
+    <div className=' w-full flex justify-center items-center  p-4'>
+      
+<div className=' grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 lg:grid-cols-6  xl:grid-cols-6 gap-4 xl:px-48  md:px-24 sm:px-16 px-4 ' >
+
+        {movies
         .map(movie => (
           <div    key={movie.id}>
 <div class="bg-red-100  bg-white border border-gray-200 rounded-lg shadow">
@@ -84,7 +97,7 @@ function HomePage() {
         </div>
 
 <div className="text-center mb-2">
-  <button onClick={() => dispatch(addToCart(movie))} key={movie.id}   class="mb-2 object-none object-right-bottom inline-flex items-center px-2 mt-2 py-1 text-sm font-medium text-center text-white bg-blue-800 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+  <button onClick={() => dispatch(addToCart(movie))} key={movie.id}   class="mb-2 object-none object-right-bottom inline-flex items-center px-2 mt-2 py-1 text-sm font-medium text-center text-white bg-blue-800 rounded-[3px] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
     Add to Cart
   </button> <br></br>
 <button class="inline-block bg-gray-100 hover:bg-gray-100 text-gray-800 text-xs  py-1 px-2 border border-gray-200 rounded">

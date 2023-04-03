@@ -72,7 +72,7 @@
     "id": 6,
     "title": "The Swallows of Kabul",
     "rating":6.3,
-    "genre1":"biography",
+    "genre1":"horror",
     "genre2":"drama",
     
     "price": 59,
@@ -104,7 +104,7 @@
     
     "price": 79,
     "genre2":"fantasy",
-    "image":"https://www.hdfilmcehennemi.life/uploads/poster/time-trap-izle.jpg",
+    "image":"https://www.hdfilmcehennemi.life/uploads/poster/magic-mike-s-last-dance.jpg",
     "director": "Francis Ford Coppola",
     "release_year": 1972,
     "quantity": 1,
@@ -196,7 +196,7 @@
     "id": 15,
     "title": "Shaft",
     "rating":6.3,
-    "genre1":"biography",
+    "genre1":"horror",
     "genre2":"drama",
     
     "price": 59,
@@ -243,6 +243,19 @@
     "price": 79.90,
     "genre2":"fantasy",
     "image":"https://www.hdfilmcehennemi.life/uploads/poster/1-kardakiizler-filmi-1080p-izle.jpg",
+    "director": "Francis Ford Coppola",
+    "release_year": 2001,
+    "quantity": 1,
+    "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
+  },
+  {
+    "id": 19,
+    "title": "Star Trek",
+    "rating":9.3,
+    "genre1":"action",
+    "price": 79.90,
+    "genre2":"fantasy",
+    "image":"https://www.hdfilmcehennemi.life/uploads/poster/star-trek.jpg",
     "director": "Francis Ford Coppola",
     "release_year": 2001,
     "quantity": 1,

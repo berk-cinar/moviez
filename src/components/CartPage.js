@@ -11,6 +11,11 @@ export default function CartPage() {
 
         const dispatch = useDispatch();
 
+        const calculate = (x,y) => {
+          return x*y
+        }
+
+
         useEffect(() => {
                 dispatch(getCartTotal());
         }, [cart])
@@ -18,13 +23,19 @@ export default function CartPage() {
   return (
     <div className=''>
          <div class="container mx-auto mt-10">
-    <div class=" bg-gray-200 flex shadow-md my-10">
-      <div class="w-3/4 bg-white px-10 py-10">
+
+
+    <div class=" w-full  flex flex-col md:flex-row shadow-md my-10">
+      <div class=" md:w-2/3 bg-white px-10 py-10">
+
         <div class="flex justify-between border-b pb-8">
           <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+
           <h2 class="font-semibold text-2xl">{cart.length}   Items</h2>
         </div>
-        <div class="flex mt-10 mb-5">
+
+
+        <div class="flex  mt-10 mb-5">
           <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Product Details</h3>
           <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Quantity</h3>
           <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
@@ -40,7 +51,6 @@ export default function CartPage() {
 
           <div class="flex flex-col justify-between ml-4 flex-grow">
             <span class="font-bold text-sm">{item.title}</span>
-            <span class="text-red-500 text-xs">Apple</span>
             <a onClick={() => dispatch(removeItem(item.id))} class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
           </div>
         </div>
@@ -57,9 +67,9 @@ export default function CartPage() {
           </svg>
         </div>
         <span class="text-center w-1/5 font-semibold text-sm">${item.price}</span>
-        <span class="text-center w-1/5 font-semibold text-sm">${totalPrice}</span>
+        <span class="text-center w-1/5 font-semibold text-sm"> {calculate(item.price,item.quantity)}</span>
       </div>
-        )
+        ) 
         }
 
         <a href="/movielist" class="flex font-semibold text-indigo-600 text-sm mt-10">
@@ -69,7 +79,7 @@ export default function CartPage() {
         </a>
       </div>
 
-      <div id="summary" class="w-1/4 px-8 py-10">
+      <div id="summary" class="md:w-1/3 px-8 py-10">
         <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
         <div class="flex justify-between mt-10 mb-5">
           <span class="font-semibold text-sm uppercase">Items : {cart.length}        </span>
@@ -85,13 +95,13 @@ export default function CartPage() {
           <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
           <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full"/>
         </div>
-        <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+        <button class="bg-red-500 hover:bg-red-600  rounded-full  py-2 px-8 text-sm text-white uppercase">Apply</button>
         <div class="border-t mt-8">
-          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+{/*           <div class="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost: {totalPrice}  </span>
             <span> QUANTİTY : {totalQuantity}</span>
-          </div>
-          <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+          </div> */}
+          <button class="rounded-full bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
       </div>
 
